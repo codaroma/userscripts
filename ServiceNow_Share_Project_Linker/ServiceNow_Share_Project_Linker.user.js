@@ -16,7 +16,6 @@
 
 (function () {
     "use strict";
-    
     new MutationObserver(() => {
         const hashPath = location.hash.split("?", 1)[0];
         const pathConfig = {
