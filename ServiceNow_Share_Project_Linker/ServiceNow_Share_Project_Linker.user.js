@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         ServiceNow Share Unangulate project links
+// @name         ServiceNow Share Project Linker
 // @namespace    https://greasyfork.org/en/users/1260574
 // @version      2024-02-13
 // @description  Convert ServiceNow Share project links from AngularJS script to regular href links
