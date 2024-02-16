@@ -2,7 +2,7 @@
 // @name         ServiceNow Share Project Linker
 // @namespace    https://github.com/codaroma/userscripts
 // @copyright    2024+, codaroma (https://github.com/codaroma)
-// @version      0.0.5
+// @version      0.0.6
 // @description  Convert ServiceNow Share project links from AngularJS script to regular href links
 // @icon         https://developer.servicenow.com/favicon.ico
 // @grant        none
@@ -15,33 +15,35 @@
 // ==/UserScript==
 
 (function () {
-    "use strict";
-    new MutationObserver(() => {
-        const hashPath = location.hash.split("?", 1)[0];
-        const pathConfig = {
-            "#!/share": {
-                selector:
-                    "div.dp-sh-bottom-box-row ul.card-view-list a.dp-sh-bottom-item-header[data-ng-click='takeToLink(listItem.link,{}, $event)'][href='javascript: void(0)']",
-                getUrl: (scope) => scope.listItem.link,
-            },
-            "#!/share/user/content": {
-                selector:
-                    "div.dp-suc-bottom-box-row ul.card-view-list a.dp-sh-bottom-item-header[data-ng-click='takeToLink(listItem.link,{}, $event)'][href='javascript: void(0)']",
-                getUrl: (scope) => scope.listItem.link,
-            },
-            "#!/share/contents": {
-                selector:
-                    "table.dp-scc-table tbody a.app-title[data-ng-click='shareContentsVM.takeToLink(row.url,{}, $event)'][href='javascript: void(0)']",
-                getUrl: (scope) => scope.row.url,
-            },
-        }[hashPath];
-        if (pathConfig) {
-            $(pathConfig.selector)
-                .off("click")
-                .attr("href", () => pathConfig.getUrl($(this).scope()));
-        }
-    }).observe(document.querySelector("body"), {
-        subtree: true,
-        childList: true,
-    });
+  "use strict";
+  new MutationObserver(() => {
+    const hashPath = location.hash.split("?", 1)[0];
+    const pathConfig = {
+      "#!/share": {
+        selector:
+          "div.dp-sh-bottom-box-row ul.card-view-list a.dp-sh-bottom-item-header[data-ng-click='takeToLink(listItem.link,{}, $event)'][href='javascript: void(0)']",
+        getUrl: (scope) => scope.listItem.link,
+      },
+      "#!/share/user/content": {
+        selector:
+          "div.dp-suc-bottom-box-row ul.card-view-list a.dp-sh-bottom-item-header[data-ng-click='takeToLink(listItem.link,{}, $event)'][href='javascript: void(0)']",
+        getUrl: (scope) => scope.listItem.link,
+      },
+      "#!/share/contents": {
+        selector:
+          "table.dp-scc-table tbody a.app-title[data-ng-click='shareContentsVM.takeToLink(row.url,{}, $event)'][href='javascript: void(0)']",
+        getUrl: (scope) => scope.row.url,
+      },
+    }[hashPath];
+    if (pathConfig) {
+      $(pathConfig.selector)
+        .off("click")
+        .attr("href", function () {
+          return pathConfig.getUrl($(this).scope());
+        });
+    }
+  }).observe(document.querySelector("body"), {
+    subtree: true,
+    childList: true,
+  });
 })();
