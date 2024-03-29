@@ -2,15 +2,15 @@
 // @name         ServiceNow - Share Linker
 // @namespace    https://github.com/codaroma/userscripts
 // @copyright    2024+, codaroma (https://github.com/codaroma)
-// @version      0.1.3
+// @version      0.1.4
 // @description  Convert ServiceNow Share links from AngularJS script to regular href links
 // @icon         https://developer.servicenow.com/favicon.ico
 // @grant        none
 // @author       codaroma
-// @homepage     https://github.com/codaroma/userscripts/tree/main/ServiceNow_Share_Project_Linker
+// @homepage     https://github.com/codaroma/userscripts/tree/main/ServiceNow_-_Share_Linker
 // @match        https://developer.servicenow.com/connect.do
-// @updateURL    https://github.com/codaroma/userscripts/raw/main/ServiceNow_Share_Project_Linker/ServiceNow_Share_Project_Linker.user.js
-// @downloadURL  https://github.com/codaroma/userscripts/raw/main/ServiceNow_Share_Project_Linker/ServiceNow_Share_Project_Linker.user.js
+// @updateURL    https://github.com/codaroma/userscripts/raw/main/ServiceNow_-_Share_Linker/ServiceNow_-_Share_Linker.user.js
+// @downloadURL  https://github.com/codaroma/userscripts/raw/main/ServiceNow_-_Share_Linker/ServiceNow_-_Share_Linker.user.js
 // @supportURL   https://github.com/codaroma/userscripts/issues
 // @license      MIT
 // ==/UserScript==
